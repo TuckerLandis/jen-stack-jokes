@@ -25,10 +25,12 @@ function newJokeSet() {
     newJoke.punchLine = $('#punchLineIn').val();
 }
 
+
+// checks if inputs are filled in, posts jokeObj
 function addJoke() {
     console.log('clicked add ');
 
-    if($('#whoseJokeIn').val() == '' || $('#questionIn').val() == '' || $('#punchLineIn').val() == '') {
+    if ($('#whoseJokeIn').val() == '' || $('#questionIn').val() == '' || $('#punchLineIn').val() == '') {
         alert('Please make sure all inputs are filled in');
         return;
     }
@@ -49,6 +51,8 @@ function addJoke() {
     })
 };
 
+
+// gets jokes, appends to dom as li, added buttons for removing bad jokes and laughing at good jokes
 function getJokes() {
     console.log('getting jokes');
 
@@ -66,28 +70,22 @@ function getJokes() {
             <li> ${joke.whoseJoke} : ${joke.jokeQuestion} <br> ${joke.punchLine} <br>
             <button class="badJoke">This joke isn't funny</button> 
             <button class="goodJoke">This joke is hilarious!</button> 
-            
             </li>
-            
-            `)
-        });
-
-
-
-    })
-
-}
+            `) // end append
+        }); // end loop
+    }) // end then
+} // end getJokes
 
 function badJoke() {
     console.log('bad joke here');
     console.log(this);
-    
+
     $(this).closest('li').remove();
 }
 
-function badJoke() {
-    console.log('bad joke here');
+function goodJoke() {
+    console.log('good joke here');
     console.log(this);
-    
-    $(this).closest('li').remove();
+
+    $(this).closest('li').append('🤣');
 }
