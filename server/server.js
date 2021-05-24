@@ -35,10 +35,7 @@ let jokes = [{
   }
 ];
 
-
-
 // POST Routes
-
 app.post('/jokes', (req, res) => {
 
   console.log('joke receieved', req.body);
