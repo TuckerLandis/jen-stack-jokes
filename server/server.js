@@ -34,6 +34,31 @@ let jokes = [
   }
 ];
 
+
+
+// POST Routes
+
+app.post('/jokes', (req, res) => {
+
+  console.log('joke receieved', req.body);
+  jokes.push(req.body);
+  console.log('Adjusted joke list is', jokes);
+
+  res.sendStatus(201)
+
+});
+
+// GET ROUTES
+app.get('/jokes', (req, res) => {
+  console.log('ln 34 got to /mathList');
+
+  mathBlaster(mathList);
+  formatter(mathList);
+
+  res.send(mathList);
+
+})
+
 // serve back static files
 app.use(express.static('server/public'));
 
