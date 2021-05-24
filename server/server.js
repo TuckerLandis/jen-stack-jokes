@@ -50,12 +50,8 @@ app.post('/jokes', (req, res) => {
 
 // GET ROUTES
 app.get('/jokes', (req, res) => {
-  console.log('ln 34 got to /mathList');
-
-  mathBlaster(mathList);
-  formatter(mathList);
-
-  res.send(mathList);
+  console.log('got to jokes');
+  res.send(jokes);
 
 })
 
