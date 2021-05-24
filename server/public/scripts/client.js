@@ -12,6 +12,8 @@ function onReady() {
 
     // add joke when click
     $('#addJokeButton').on('click', addJoke)
+    $('#outputDiv').on('click', '.badJoke', badJoke)
+    $('#outputDiv').on('click', '.goodJoke', goodJoke)
 
 
 }
@@ -57,11 +59,16 @@ function getJokes() {
         console.log(response);
         returnedJokes = response;
 
-        $('#outputDiv').empty();
+        $('#outputDiv').empty(); // empty div
 
         returnedJokes.forEach(joke => {
             $('#outputDiv').append(`
-            <li> ${joke.whoseJoke} : ${joke.jokeQuestion} <br> ${joke.punchLine}
+            <li> ${joke.whoseJoke} : ${joke.jokeQuestion} <br> ${joke.punchLine} <br>
+            <button class="badJoke">This joke isn't funny</button> 
+            <button class="goodJoke">This joke is hilarious!</button> 
+            
+            </li>
+            
             `)
         });
 
@@ -69,4 +76,18 @@ function getJokes() {
 
     })
 
+}
+
+function badJoke() {
+    console.log('bad joke here');
+    console.log(this);
+    
+    $(this).closest('li').remove();
+}
+
+function badJoke() {
+    console.log('bad joke here');
+    console.log(this);
+    
+    $(this).closest('li').remove();
 }
