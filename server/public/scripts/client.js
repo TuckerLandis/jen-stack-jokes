@@ -24,4 +24,13 @@ function addJoke() {
     newJokeSet();
     console.log(newJoke);
     
-}
+
+    $.ajax({
+        method: 'POST',
+        url: '/jokes',
+        data: newJoke,
+    }).then(function (response) {
+        console.log(response);
+       // getJokes(); 
+})
+};
